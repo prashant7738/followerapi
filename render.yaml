@@ -1,7 +1,9 @@
 services:
   - type: web
-    name: django-api
+    name: follower-api
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn your_project_name.wsgi
-    autoDeploy: true
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn apisite.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: "lvj$f889f_j_vh-3s*fzlw-j$xci_bz)pmbbl9xk9uhc*6e8lk"
